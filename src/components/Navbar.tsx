@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, BookOpen, GraduationCap, Home } from "lucide-react";
+import { Menu, X, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,9 +54,11 @@ const Navbar = () => {
             <a href="#welcome" className="text-gray-800 hover:text-maroon transition-colors">
               Welcome
             </a>
-            <Button className="bg-maroon hover:bg-maroon-dark text-white">
-              Contact Us
-            </Button>
+            <Link to="/register">
+              <Button className="bg-maroon hover:bg-maroon-dark text-white">
+                Register
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -105,9 +108,11 @@ const Navbar = () => {
             >
               Welcome
             </a>
-            <Button className="bg-maroon hover:bg-maroon-dark text-white w-full">
-              Contact Us
-            </Button>
+            <Link to="/register" onClick={toggleMenu}>
+              <Button className="bg-maroon hover:bg-maroon-dark text-white w-full">
+                Register
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
