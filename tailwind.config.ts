@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,6 +25,16 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				maroon: {
+					DEFAULT: 'hsl(var(--maroon))',
+					dark: 'hsl(var(--maroon-dark))',
+					light: 'hsl(var(--maroon-light))',
+					foreground: 'hsl(var(--maroon-foreground))'
+				},
+				cream: {
+					DEFAULT: 'hsl(var(--cream))',
+					foreground: 'hsl(var(--cream-foreground))'
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -84,11 +95,26 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				fadeIn: {
+					from: { opacity: '0' },
+					to: { opacity: '1' }
+				},
+				slideUp: {
+					from: { transform: 'translateY(20px)', opacity: '0' },
+					to: { transform: 'translateY(0)', opacity: '1' }
+				},
+				slideRight: {
+					from: { transform: 'translateX(-20px)', opacity: '0' },
+					to: { transform: 'translateX(0)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fadeIn 0.5s ease-out forwards',
+				'slide-up': 'slideUp 0.5s ease-out forwards',
+				'slide-right': 'slideRight 0.5s ease-out forwards'
 			}
 		}
 	},
