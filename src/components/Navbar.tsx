@@ -54,6 +54,9 @@ const Navbar = () => {
             <a href="#welcome" className="text-gray-800 hover:text-maroon transition-colors">
               Welcome
             </a>
+            <Link to="/gallery" className="text-gray-800 hover:text-maroon transition-colors">
+              Gallery
+            </Link>
             <Link to="/register">
               <Button className="bg-maroon hover:bg-maroon-dark text-white">
                 Register
@@ -108,6 +111,13 @@ const Navbar = () => {
             >
               Welcome
             </a>
+            <Link 
+              to="/gallery" 
+              className="text-gray-800 hover:text-maroon transition-colors"
+              onClick={toggleMenu}
+            >
+              Gallery
+            </Link>
             <Link to="/register" onClick={toggleMenu}>
               <Button className="bg-maroon hover:bg-maroon-dark text-white w-full">
                 Register
