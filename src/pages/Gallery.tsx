@@ -40,10 +40,11 @@ const Gallery = () => {
         </p>
 
         <Tabs defaultValue="school" className="w-full max-w-5xl mx-auto">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
+          <TabsList className="grid w-full grid-cols-4 mb-8">
             <TabsTrigger value="school">School Campus</TabsTrigger>
             <TabsTrigger value="students">Students</TabsTrigger>
             <TabsTrigger value="prefects">School Prefects</TabsTrigger>
+            <TabsTrigger value="facilities">Facilities</TabsTrigger>
           </TabsList>
 
           <TabsContent value="school">
@@ -108,6 +109,34 @@ const Gallery = () => {
                   <div className="p-4 bg-white">
                     <h3 className="font-bold text-maroon">{prefect.name}</h3>
                     <p className="text-gray-600">{prefect.role}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </TabsContent>
+
+          <TabsContent value="facilities">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {[
+                { name: "School Library", description: "Our well-stocked library provides a quiet space for research and reading.", id: 1 },
+                { name: "Computer Lab", description: "Modern computer facilities to develop essential digital skills.", id: 2 },
+                { name: "Staff Room", description: "A dedicated space for our committed teachers and staff.", id: 3 },
+                { name: "Student Playing Ground", description: "Spacious outdoor area for recreation and physical education.", id: 4 },
+              ].map((facility) => (
+                <motion.div key={`facility-${facility.id}`} variants={itemVariants} className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <img 
+                    src={`https://source.unsplash.com/featured/?school,${facility.name.toLowerCase().replace(' ', '')},education,${facility.id}`}
+                    alt={facility.name}
+                    className="w-full h-72 object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="p-5 bg-white">
+                    <h3 className="font-bold text-maroon text-xl mb-2">{facility.name}</h3>
+                    <p className="text-gray-600">{facility.description}</p>
                   </div>
                 </motion.div>
               ))}
