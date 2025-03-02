@@ -79,11 +79,12 @@ const Gallery = () => {
         </p>
 
         <Tabs defaultValue="school" className="w-full max-w-5xl mx-auto">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
+          <TabsList className="grid w-full grid-cols-5 mb-8">
             <TabsTrigger value="school">School Campus</TabsTrigger>
             <TabsTrigger value="students">Students</TabsTrigger>
             <TabsTrigger value="prefects">School Prefects</TabsTrigger>
             <TabsTrigger value="facilities">Facilities</TabsTrigger>
+            <TabsTrigger value="alumni">Alumni</TabsTrigger>
           </TabsList>
 
           {/* School Campus Section */}
@@ -312,6 +313,83 @@ const Gallery = () => {
                       {facility.name}
                     </h3>
                     <p className="text-gray-600">{facility.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </TabsContent>
+
+          <TabsContent value="alumni">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {[
+                { 
+                  name: "Abdullahi Ibrahim", 
+                  university: "Oxford University", 
+                  study: "Computer Science", 
+                  graduationYear: "2018",
+                  id: 1 
+                },
+                { 
+                  name: "Zainab Umar", 
+                  university: "Harvard University", 
+                  study: "Medicine", 
+                  graduationYear: "2017",
+                  id: 2 
+                },
+                { 
+                  name: "Mohammed Abdullah", 
+                  university: "Stanford University", 
+                  study: "Business Administration", 
+                  graduationYear: "2019",
+                  id: 3 
+                },
+                { 
+                  name: "Halima Yusuf", 
+                  university: "MIT", 
+                  study: "Electrical Engineering", 
+                  graduationYear: "2018",
+                  id: 4 
+                },
+                { 
+                  name: "Suleiman Ahmad", 
+                  university: "Cambridge University", 
+                  study: "International Relations", 
+                  graduationYear: "2020",
+                  id: 5 
+                },
+                { 
+                  name: "Aisha Bello", 
+                  university: "Yale University", 
+                  study: "Law", 
+                  graduationYear: "2019",
+                  id: 6 
+                },
+              ].map((alumni) => (
+                <motion.div key={`alumni-${alumni.id}`} variants={itemVariants} className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <img 
+                    src={`https://source.unsplash.com/featured/?graduate,student,professional,${alumni.id}`}
+                    alt={`${alumni.name}`}
+                    className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="p-5 bg-white">
+                    <h3 className="font-bold text-maroon text-xl mb-1">{alumni.name}</h3>
+                    <div className="flex items-center mb-1">
+                      <span className="text-gray-700 font-medium">University:</span>
+                      <span className="text-gray-600 ml-2">{alumni.university}</span>
+                    </div>
+                    <div className="flex items-center mb-1">
+                      <span className="text-gray-700 font-medium">Field of Study:</span>
+                      <span className="text-gray-600 ml-2">{alumni.study}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-gray-700 font-medium">Class of:</span>
+                      <span className="text-gray-600 ml-2">{alumni.graduationYear}</span>
+                    </div>
                   </div>
                 </motion.div>
               ))}
