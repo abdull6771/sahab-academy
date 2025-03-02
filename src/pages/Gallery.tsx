@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,9 +11,9 @@ const Gallery = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
@@ -22,21 +21,61 @@ const Gallery = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 }
-    }
+      transition: { duration: 0.5 },
+    },
   };
+
+  // Prefects Data with Local Images
+  const prefects = [
+    {
+      name: "Aisha Muhammad",
+      role: "Head Girl",
+      id: 1,
+      image: "/images/prefects/head_girl.jpg",
+    },
+    {
+      name: "Ibrahim Yusuf",
+      role: "Head Boy",
+      id: 2,
+      image: "/images/prefects/head_boy.jpg",
+    },
+    {
+      name: "Fatima Ahmed",
+      role: "Assistant Head Girl",
+      id: 3,
+      image: "/images/prefects/assistant_head_girl.jpg",
+    },
+    {
+      name: "Usman Abdullahi",
+      role: "Assistant Head Boy",
+      id: 4,
+      image: "/images/prefects/assistant_head_boy.jpg",
+    },
+    {
+      name: "Amina Hassan",
+      role: "Library Prefect",
+      id: 5,
+      image: "/images/prefects/library_prefect.jpg",
+    },
+    {
+      name: "Yusuf Suleiman",
+      role: "Sports Prefect",
+      id: 6,
+      image: "/images/prefects/sports_prefect.jpg",
+    },
+  ];
 
   return (
     <div className="min-h-screen">
       <Navbar />
-      
+
       <div className="pt-24 pb-16 container-custom">
         <h1 className="text-3xl md:text-4xl font-bold text-maroon text-center mb-2">
           Our School Gallery
         </h1>
         <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">
-          Explore our vibrant school community through these snapshots of our campus,
-          students, and events that make Sahab Academy special.
+          Explore our vibrant school community through these snapshots of our
+          campus, students, and events that make Sahab Academy special.
         </p>
 
         <Tabs defaultValue="school" className="w-full max-w-5xl mx-auto">
@@ -47,16 +86,21 @@ const Gallery = () => {
             <TabsTrigger value="facilities">Facilities</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="school">
-            <motion.div 
+          {/* School Campus Section */}
+          {/* <TabsContent value="school">
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
               {[1, 2, 3, 4, 5, 6].map((item) => (
-                <motion.div key={`school-${item}`} variants={itemVariants} className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                  <img 
+                <motion.div
+                  key={`school-${item}`}
+                  variants={itemVariants}
+                  className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                >
+                  <img
                     src={`https://source.unsplash.com/featured/?school,building,classroom,library,${item}`}
                     alt={`School campus image ${item}`}
                     className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
@@ -64,48 +108,150 @@ const Gallery = () => {
                 </motion.div>
               ))}
             </motion.div>
-          </TabsContent>
-
-          <TabsContent value="students">
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {[1, 2, 3, 4, 5, 6].map((item) => (
-                <motion.div key={`student-${item}`} variants={itemVariants} className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                  <img 
-                    src={`https://source.unsplash.com/featured/?student,education,learning,children,${item}`}
-                    alt={`Students image ${item}`}
-                    className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-          </TabsContent>
-
-          <TabsContent value="prefects">
-            <motion.div 
+          </TabsContent> */}
+          {/* School Campus Section */}
+          <TabsContent value="school">
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
               {[
-                { name: "Aisha Muhammad", role: "Head Girl", id: 1 },
-                { name: "Ibrahim Yusuf", role: "Head Boy", id: 2 },
-                { name: "Fatima Ahmed", role: "Assistant Head Girl", id: 3 },
-                { name: "Usman Abdullahi", role: "Assistant Head Boy", id: 4 },
-                { name: "Amina Hassan", role: "Library Prefect", id: 5 },
-                { name: "Yusuf Suleiman", role: "Sports Prefect", id: 6 },
-              ].map((prefect) => (
-                <motion.div key={`prefect-${prefect.id}`} variants={itemVariants} className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                  <img 
-                    src={`https://source.unsplash.com/featured/?student,portrait,uniform,${prefect.id}`}
+                {
+                  name: "Main Building",
+                  id: 1,
+                  image: "/images/campus/main_building.jpg",
+                },
+                {
+                  name: "School Entrance",
+                  id: 2,
+                  image: "/images/campus/entrance.jpg",
+                },
+                {
+                  name: "Classrooms",
+                  id: 3,
+                  image: "/images/campus/classrooms.jpg",
+                },
+                { name: "Library", id: 4, image: "/images/campus/library.jpg" },
+                {
+                  name: "Playground",
+                  id: 5,
+                  image: "/images/campus/playground.jpg",
+                },
+                {
+                  name: "Science Lab",
+                  id: 6,
+                  image: "/images/campus/science_lab.jpg",
+                },
+              ].map((campus) => (
+                <motion.div
+                  key={`campus-${campus.id}`}
+                  variants={itemVariants}
+                  className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                >
+                  <img
+                    src={campus.image}
+                    alt={campus.name}
+                    width={400}
+                    height={300}
+                    className="w-[400px] h-[300px] object-cover hover:scale-105 transition-transform duration-500 rounded-lg"
+                  />
+                  <div className="p-4 bg-white">
+                    <h3 className="font-bold text-maroon">{campus.name}</h3>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </TabsContent>
+
+          {/* Students Section */}
+          <TabsContent value="students">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {[
+                {
+                  name: "Aliyu Musa",
+                  id: 1,
+                  image: "/images/students/aliyu.jpg",
+                },
+                {
+                  name: "Zainab Umar",
+                  id: 2,
+                  image: "/images/students/zainab.jpg",
+                },
+                {
+                  name: "Abdullahi Ismail",
+                  id: 3,
+                  image: "/images/students/abdullahi.jpg",
+                },
+                {
+                  name: "Maryam Sani",
+                  id: 4,
+                  image: "/images/students/maryam.jpg",
+                },
+                {
+                  name: "Khalid Ibrahim",
+                  id: 5,
+                  image: "/images/students/khalid.jpg",
+                },
+                {
+                  name: "Hauwa Bello",
+                  id: 6,
+                  image: "/images/students/hauwa.jpg",
+                },
+              ].map((student) => (
+                <motion.div
+                  key={`student-${student.id}`}
+                  variants={itemVariants}
+                  className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                >
+                  <img
+                    src={student.image}
+                    alt={student.name}
+                    width={300}
+                    height={400}
+                    className="w-[300px] h-[400px] object-cover hover:scale-105 transition-transform duration-500 rounded-lg"
+                  />
+                  <div className="p-4 bg-white">
+                    <h3 className="font-bold text-maroon">{student.name}</h3>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </TabsContent>
+
+          {/* School Prefects Section with Local Images */}
+          <TabsContent value="prefects">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {prefects.map((prefect) => (
+                <motion.div
+                  key={`prefect-${prefect.id}`}
+                  variants={itemVariants}
+                  className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                >
+                  {/* <img
+                    src={prefect.image} // Local image path
                     alt={`${prefect.name} - ${prefect.role}`}
                     className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
+                  /> */}
+                  <img
+                    src={prefect.image} // Local image path
+                    alt={`${prefect.name} - ${prefect.role}`}
+                    width={300} // Set explicit width
+                    height={400} // Set explicit height
+                    className="w-[300px] h-[400px] object-cover hover:scale-105 transition-transform duration-500 rounded-lg"
                   />
+
                   <div className="p-4 bg-white">
                     <h3 className="font-bold text-maroon">{prefect.name}</h3>
                     <p className="text-gray-600">{prefect.role}</p>
@@ -115,27 +261,56 @@ const Gallery = () => {
             </motion.div>
           </TabsContent>
 
+          {/* School Facilities Section */}
           <TabsContent value="facilities">
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
               {[
-                { name: "School Library", description: "Our well-stocked library provides a quiet space for research and reading.", id: 1 },
-                { name: "Computer Lab", description: "Modern computer facilities to develop essential digital skills.", id: 2 },
-                { name: "Staff Room", description: "A dedicated space for our committed teachers and staff.", id: 3 },
-                { name: "Student Playing Ground", description: "Spacious outdoor area for recreation and physical education.", id: 4 },
+                {
+                  name: "School Library",
+                  description:
+                    "Our well-stocked library provides a quiet space for research and reading.",
+                  id: 1,
+                },
+                {
+                  name: "Computer Lab",
+                  description:
+                    "Modern computer facilities to develop essential digital skills.",
+                  id: 2,
+                },
+                {
+                  name: "Staff Room",
+                  description:
+                    "A dedicated space for our committed teachers and staff.",
+                  id: 3,
+                },
+                {
+                  name: "Student Playing Ground",
+                  description:
+                    "Spacious outdoor area for recreation and physical education.",
+                  id: 4,
+                },
               ].map((facility) => (
-                <motion.div key={`facility-${facility.id}`} variants={itemVariants} className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                  <img 
-                    src={`https://source.unsplash.com/featured/?school,${facility.name.toLowerCase().replace(' ', '')},education,${facility.id}`}
+                <motion.div
+                  key={`facility-${facility.id}`}
+                  variants={itemVariants}
+                  className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                >
+                  <img
+                    src={`https://source.unsplash.com/featured/?school,${facility.name
+                      .toLowerCase()
+                      .replace(" ", "")},education,${facility.id}`}
                     alt={facility.name}
                     className="w-full h-72 object-cover hover:scale-105 transition-transform duration-500"
                   />
                   <div className="p-5 bg-white">
-                    <h3 className="font-bold text-maroon text-xl mb-2">{facility.name}</h3>
+                    <h3 className="font-bold text-maroon text-xl mb-2">
+                      {facility.name}
+                    </h3>
                     <p className="text-gray-600">{facility.description}</p>
                   </div>
                 </motion.div>
