@@ -24,6 +24,58 @@ const Gallery = () => {
       transition: { duration: 0.5 },
     },
   };
+  // Alumni Data with Local Images
+
+  const alumni = [
+    {
+      name: "Abdullahi Ahmad",
+      university: "Ahmadu Bello University Zaria",
+      study: "Computer Science",
+      graduationYear: "2018",
+      image: "/images/alumni/Abdullahi_Ahmad.jpeg",
+      id: 1,
+    },
+    {
+      name: "Zainab Umar",
+      university: "Harvard University",
+      study: "Medicine",
+      graduationYear: "2017",
+      image: "/images/alumni/zainab_umar.jpeg",
+      id: 2,
+    },
+    {
+      name: "Mohammed Abdullah",
+      university: "Stanford University",
+      study: "Business Administration",
+      graduationYear: "2019",
+      image: "/images/alumni/mohammed_abdullah.jpeg",
+      id: 3,
+    },
+    {
+      name: "Halima Yusuf",
+      university: "MIT",
+      study: "Electrical Engineering",
+      graduationYear: "2018",
+      image: "/images/alumni/halima_yusuf.jpeg",
+      id: 4,
+    },
+    {
+      name: "Suleiman Ahmad",
+      university: "Cambridge University",
+      study: "International Relations",
+      graduationYear: "2020",
+      image: "/images/alumni/suleiman_ahmad.jpeg",
+      id: 5,
+    },
+    {
+      name: "Aisha Bello",
+      university: "Yale University",
+      study: "Law",
+      graduationYear: "2019",
+      image: "/images/alumni/aisha_bello.jpeg",
+      id: 6,
+    },
+  ];
 
   // Prefects Data with Local Images
   const prefects = [
@@ -87,29 +139,6 @@ const Gallery = () => {
             <TabsTrigger value="alumni">Alumni</TabsTrigger>
           </TabsList>
 
-          {/* School Campus Section */}
-          {/* <TabsContent value="school">
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {[1, 2, 3, 4, 5, 6].map((item) => (
-                <motion.div
-                  key={`school-${item}`}
-                  variants={itemVariants}
-                  className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-                >
-                  <img
-                    src={`https://source.unsplash.com/featured/?school,building,classroom,library,${item}`}
-                    alt={`School campus image ${item}`}
-                    className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-          </TabsContent> */}
           {/* School Campus Section */}
           <TabsContent value="school">
             <motion.div
@@ -318,83 +347,133 @@ const Gallery = () => {
               ))}
             </motion.div>
           </TabsContent>
-
           <TabsContent value="alumni">
-            <motion.div 
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {alumni.map((alumnus) => (
+                <motion.div
+                  key={`alumni-${alumnus.id}`}
+                  variants={itemVariants}
+                  className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                >
+                  <img
+                    src={alumnus.image}
+                    alt={alumnus.name}
+                    width={300}
+                    height={400}
+                    className="w-[300px] h-[400px] object-cover hover:scale-105 transition-transform duration-500 rounded-lg"
+                  />
+                  <div className="p-5 bg-white">
+                    <h3 className="font-bold text-maroon text-xl mb-1">
+                      {alumnus.name}
+                    </h3>
+                    <p className="text-gray-600">{alumnus.university}</p>
+                    <p className="text-gray-600">{alumnus.study}</p>
+                    <p className="text-gray-500">
+                      Class of {alumnus.graduationYear}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </TabsContent>
+
+          {/* <TabsContent value="alumni">
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
               {[
-                { 
-                  name: "Abdullahi Ibrahim", 
-                  university: "Oxford University", 
-                  study: "Computer Science", 
+                {
+                  name: "Abdullahi Ibrahim",
+                  university: "Oxford University",
+                  study: "Computer Science",
                   graduationYear: "2018",
-                  id: 1 
+                  id: 1,
                 },
-                { 
-                  name: "Zainab Umar", 
-                  university: "Harvard University", 
-                  study: "Medicine", 
+                {
+                  name: "Zainab Umar",
+                  university: "Harvard University",
+                  study: "Medicine",
                   graduationYear: "2017",
-                  id: 2 
+                  id: 2,
                 },
-                { 
-                  name: "Mohammed Abdullah", 
-                  university: "Stanford University", 
-                  study: "Business Administration", 
+                {
+                  name: "Mohammed Abdullah",
+                  university: "Stanford University",
+                  study: "Business Administration",
                   graduationYear: "2019",
-                  id: 3 
+                  id: 3,
                 },
-                { 
-                  name: "Halima Yusuf", 
-                  university: "MIT", 
-                  study: "Electrical Engineering", 
+                {
+                  name: "Halima Yusuf",
+                  university: "MIT",
+                  study: "Electrical Engineering",
                   graduationYear: "2018",
-                  id: 4 
+                  id: 4,
                 },
-                { 
-                  name: "Suleiman Ahmad", 
-                  university: "Cambridge University", 
-                  study: "International Relations", 
+                {
+                  name: "Suleiman Ahmad",
+                  university: "Cambridge University",
+                  study: "International Relations",
                   graduationYear: "2020",
-                  id: 5 
+                  id: 5,
                 },
-                { 
-                  name: "Aisha Bello", 
-                  university: "Yale University", 
-                  study: "Law", 
+                {
+                  name: "Aisha Bello",
+                  university: "Yale University",
+                  study: "Law",
                   graduationYear: "2019",
-                  id: 6 
+                  id: 6,
                 },
               ].map((alumni) => (
-                <motion.div key={`alumni-${alumni.id}`} variants={itemVariants} className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                  <img 
+                <motion.div
+                  key={`alumni-${alumni.id}`}
+                  variants={itemVariants}
+                  className="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                >
+                  <img
                     src={`https://source.unsplash.com/featured/?graduate,student,professional,${alumni.id}`}
                     alt={`${alumni.name}`}
                     className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
                   />
                   <div className="p-5 bg-white">
-                    <h3 className="font-bold text-maroon text-xl mb-1">{alumni.name}</h3>
+                    <h3 className="font-bold text-maroon text-xl mb-1">
+                      {alumni.name}
+                    </h3>
                     <div className="flex items-center mb-1">
-                      <span className="text-gray-700 font-medium">University:</span>
-                      <span className="text-gray-600 ml-2">{alumni.university}</span>
+                      <span className="text-gray-700 font-medium">
+                        University:
+                      </span>
+                      <span className="text-gray-600 ml-2">
+                        {alumni.university}
+                      </span>
                     </div>
                     <div className="flex items-center mb-1">
-                      <span className="text-gray-700 font-medium">Field of Study:</span>
+                      <span className="text-gray-700 font-medium">
+                        Field of Study:
+                      </span>
                       <span className="text-gray-600 ml-2">{alumni.study}</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-gray-700 font-medium">Class of:</span>
-                      <span className="text-gray-600 ml-2">{alumni.graduationYear}</span>
+                      <span className="text-gray-700 font-medium">
+                        Class of:
+                      </span>
+                      <span className="text-gray-600 ml-2">
+                        {alumni.graduationYear}
+                      </span>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
-          </TabsContent>
+          </TabsContent> */}
         </Tabs>
       </div>
 
