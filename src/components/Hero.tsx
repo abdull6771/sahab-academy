@@ -9,8 +9,15 @@ const Hero = () => {
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div className="space-y-6 animate-fade-in">
-            <div className="inline-block px-3 py-1 rounded-full bg-maroon/10 text-maroon font-medium text-sm tracking-wide">
-              Excellence in Education
+            <div className="flex items-center gap-3 mb-2">
+              <img 
+                src="/placeholder.svg" 
+                alt="SAHAB Academy Logo" 
+                className="h-16 w-16 object-contain"
+              />
+              <div className="inline-block px-3 py-1 rounded-full bg-maroon/10 text-maroon font-medium text-sm tracking-wide">
+                Excellence in Education
+              </div>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight">
               Welcome to <span className="text-maroon">SAHAB</span> Academy Nursery & Primary School
