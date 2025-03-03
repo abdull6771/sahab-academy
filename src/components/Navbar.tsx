@@ -54,7 +54,7 @@ const Navbar = () => {
             <a href="#welcome" className="text-gray-800 hover:text-maroon transition-colors">
               Welcome
             </a>
-            <Link to="/gallery" className="text-gray-800 hover:text-maroon transition-colors">
+            <Link to="/" className="text-gray-800 hover:text-maroon transition-colors">
               Gallery
             </Link>
             <Link to="/register">
@@ -112,7 +112,7 @@ const Navbar = () => {
               Welcome
             </a>
             <Link 
-              to="/gallery" 
+              to="/" 
               className="text-gray-800 hover:text-maroon transition-colors"
               onClick={toggleMenu}
             >
