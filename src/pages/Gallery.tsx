@@ -1,8 +1,12 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 
 const Gallery = () => {
   // Animation variants for images
@@ -122,6 +126,15 @@ const Gallery = () => {
       <Navbar />
 
       <div className="pt-24 pb-16 container-custom">
+        <div className="mb-6">
+          <Link to="/">
+            <Button variant="outline" className="flex items-center gap-2">
+              <ArrowLeft size={16} />
+              Back to Home
+            </Button>
+          </Link>
+        </div>
+        
         <h1 className="text-3xl md:text-4xl font-bold text-maroon text-center mb-2">
           Our School Gallery
         </h1>
