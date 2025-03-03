@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -79,6 +78,30 @@ const Gallery = () => {
       image: "/images/alumni/aisha_bello.jpeg",
       id: 6,
     },
+    {
+      name: "Umma Salma Sani",
+      university: "Northwest University Kano",
+      study: "Bsc. Anatomy",
+      graduationYear: "2024",
+      image: "/images/alumni/aisha_bello.jpeg",
+      id: 7,
+    },
+    {
+      name: "Isah Aminu",
+      university: "Ahmadu Bello University Zaria",
+      study: "BEng. Building",
+      graduationYear: "202",
+      image: "/images/alumni/aisha_bello.jpeg",
+      id: 8,
+    },
+    {
+      name: "Khalipha Hamisu",
+      university: "Sule Lamido University Kafin Hausa",
+      study: "Bsc. Computer Science",
+      graduationYear: "2022",
+      image: "/images/alumni/aisha_bello.jpeg",
+      id: 9,
+    },
   ];
 
   // Prefects Data with Local Images
@@ -134,7 +157,7 @@ const Gallery = () => {
             </Button>
           </Link>
         </div>
-        
+
         <h1 className="text-3xl md:text-4xl font-bold text-maroon text-center mb-2">
           Our School Gallery
         </h1>
@@ -359,6 +382,7 @@ const Gallery = () => {
                 </motion.div>
               ))}
             </motion.div>
+            {/* { <TabsContent value="alumni"> */}
           </TabsContent>
           <TabsContent value="alumni">
             <motion.div
