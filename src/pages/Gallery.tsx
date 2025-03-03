@@ -102,6 +102,15 @@ const Gallery = () => {
       image: "/images/alumni/aisha_bello.jpeg",
       id: 9,
     },
+    {
+      name: "Khadijah Ahmad",
+      university:
+        "Jigawa State College of Remedial and Advanced Studies Babura",
+      study: "ND Public Health",
+      graduationYear: "2025",
+      image: "/images/alumni/khadija_ahmad.jpeg",
+      id: 10,
+    },
   ];
 
   // Prefects Data with Local Images
