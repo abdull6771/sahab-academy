@@ -43,7 +43,7 @@ const Gallery = () => {
       university: "Sule Lamido University Kafin Hausa",
       study: "Bsc. Chemistry",
       graduationYear: "2022",
-      image: "/images/alumni/zainab_umar.jpeg",
+      image: "/images/alumni/jamilu.jpeg",
       id: 2,
     },
     {
