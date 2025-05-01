@@ -47,7 +47,7 @@ const Gallery = () => {
       id: 2,
     },
     {
-      name: "Ibrahim Habibu Tanko",
+      name: "Ibrahim Habibu Tade",
       university: "Federal University Dutse",
       study: "Bsc. Computer Science",
       graduationYear: "2023",
