@@ -51,7 +51,7 @@ const Gallery = () => {
       university: "Federal University Dutse",
       study: "Bsc. Computer Science",
       graduationYear: "2023",
-      image: "/images/alumni/mohammed_abdullah.jpeg",
+      image: "/images/alumni/ibrahimh.jpeg",
       id: 3,
     },
     {
