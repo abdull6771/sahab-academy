@@ -1,46 +1,35 @@
-
-import React, { useEffect } from "react";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Sections from "@/components/Sections";
-import Welcome from "@/components/Welcome";
-import Footer from "@/components/Footer";
+import HomeHero from "@/components/home/HomeHero";
+import TrustStrip from "@/components/home/TrustStrip";
+import Introduction from "@/components/home/Introduction";
+import Pathways from "@/components/home/Pathways";
+import HomeDestinations from "@/components/home/HomeDestinations";
+import HomeFeatures from "@/components/home/HomeFeatures";
+import HomeExperience from "@/components/home/HomeExperience";
+import CampusMosaic from "@/components/home/CampusMosaic";
+import ProprietorFeature from "@/components/home/ProprietorFeature";
+import AlumniTeaser from "@/components/home/AlumniTeaser";
+import AdmissionsCta from "@/components/home/AdmissionsCta";
+import Seo from "@/components/layout/Seo";
 
 const Index = () => {
-  useEffect(() => {
-    // This enables smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80, // Adjust for navbar height
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    return () => {
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.removeEventListener('click', function () {});
-      });
-    };
-  }, []);
-
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <About />
-      <Sections />
-      <Welcome />
-      <Footer />
-    </div>
+    <>
+      <Seo
+        title="Sahab Academy | Nursery, Primary & Secondary School, Babura"
+        description="Sahab Academy is a nursery, primary, and secondary school in Babura Local Government, Jigawa State — careful teaching for local families."
+      />
+      <HomeHero />
+      <TrustStrip />
+      <Introduction />
+      <Pathways />
+      <HomeDestinations />
+      <HomeFeatures />
+      <HomeExperience />
+      <CampusMosaic />
+      <ProprietorFeature />
+      <AlumniTeaser />
+      <AdmissionsCta />
+    </>
   );
 };
 

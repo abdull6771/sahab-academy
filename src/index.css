@@ -1,56 +1,76 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Warm paper ground — never pure white */
+    --background: 40 33% 96%;
+    --foreground: 24 18% 10%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 40 30% 94%;
+    --card-foreground: 24 18% 10%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 40 33% 97%;
+    --popover-foreground: 24 18% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Heritage maroon — CTAs, rules, active states */
+    --primary: 352 52% 26%;
+    --primary-foreground: 40 33% 96%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 35 20% 90%;
+    --secondary-foreground: 24 18% 12%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 36 18% 90%;
+    --muted-foreground: 25 10% 36%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Brass / gold — second accent, used sparingly */
+    --accent: 36 42% 46%;
+    --accent-foreground: 40 33% 97%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 4 62% 42%;
+    --destructive-foreground: 40 33% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --success: 152 28% 28%;
+    --success-foreground: 40 33% 97%;
+
+    --border: 32 16% 82%;
+    --input: 32 16% 82%;
+    --ring: 352 52% 26%;
 
     --radius: 0.5rem;
 
-    --maroon: 348 76% 30%;
-    --maroon-dark: 348 76% 25%;
-    --maroon-light: 348 76% 35%;
-    --maroon-foreground: 0 0% 100%;
+    --ink: 24 18% 10%;
+    --ink-soft: 25 10% 28%;
+    --paper: 40 33% 96%;
+    --paper-deep: 36 28% 92%;
+    --stone: 35 18% 88%;
+    --sand: 38 22% 86%;
+    --maroon: 352 52% 26%;
+    --maroon-deep: 352 54% 18%;
+    --maroon-foreground: 40 33% 96%;
+    --brass: 36 42% 46%;
+    --brass-soft: 38 32% 68%;
+    --forest: 156 22% 22%;
 
-    --cream: 40 100% 97%;
-    --cream-foreground: 348 76% 30%;
+    --header-offset: 4.25rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --nursery-sky: 198 55% 93%;
+    --nursery-peach: 22 85% 93%;
+    --nursery-leaf: 142 38% 90%;
+    --nursery-sun: 44 88% 82%;
+    --nursery-lilac: 270 45% 94%;
+    --nursery-coral: 8 62% 48%;
+    --nursery-teal: 174 42% 28%;
+
+    --sidebar-background: 40 30% 94%;
+    --sidebar-foreground: 24 18% 10%;
+    --sidebar-primary: 352 52% 26%;
+    --sidebar-primary-foreground: 40 33% 96%;
+    --sidebar-accent: 35 20% 90%;
+    --sidebar-accent-foreground: 24 18% 10%;
+    --sidebar-border: 32 16% 82%;
+    --sidebar-ring: 352 52% 26%;
   }
 }
 
@@ -59,30 +79,148 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-offset);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-background text-foreground antialiased;
+    font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "ss01" 1, "cv11" 1;
+    line-height: 1.65;
+    overflow-x: clip;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: Fraunces, ui-serif, Georgia, serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+    color: hsl(var(--ink));
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  [id] {
+    scroll-margin-top: calc(var(--header-offset) + 1.25rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-offset: 7rem;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-10;
+  }
+
+  .section-y {
+    padding-block: clamp(4rem, 8vw, 7.5rem);
+  }
+
+  .eyebrow {
+    @apply font-sans text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-brass;
+  }
+
+  .display {
+    font-family: Fraunces, ui-serif, Georgia, serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+  }
+
+  .rule {
+    @apply h-px w-full bg-border;
+  }
+
+  .img-ken {
+    transition-property: transform;
+    transition-duration: 600ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .group:hover .img-ken {
+      transform: scale(1.04);
+    }
   }
 }
 
 @layer utilities {
-  .glass-card {
-    @apply bg-white/90 backdrop-blur-sm border border-white/20 shadow-md;
-  }
-  
   .text-balance {
     text-wrap: balance;
   }
-  
-  .maroon-gradient {
-    @apply bg-gradient-to-r from-maroon-dark via-maroon to-maroon-light text-white;
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper;
   }
-  
-  .section-padding {
-    @apply py-16 md:py-24;
+}
+
+@keyframes nursery-float {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  
-  .container-custom {
-    @apply px-4 md:px-6 max-w-7xl mx-auto;
+  50% {
+    transform: translateY(-7px);
   }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nursery-float {
+    animation: nursery-float 4.2s ease-in-out infinite;
+  }
+}
+
+.nursery {
+  background-color: hsl(var(--nursery-sky) / 0.35);
+}
+
+.stage-primary {
+  --stage-accent: 156 28% 26%;
+  --stage-accent-2: 36 42% 62%;
+  --stage-soft: 38 32% 93%;
+  --stage-hero: 156 18% 14%;
+  --stage-radius: 1rem;
+}
+
+.stage-secondary {
+  --stage-accent: 352 52% 26%;
+  --stage-accent-2: 36 38% 62%;
+  --stage-soft: 32 12% 93%;
+  --stage-hero: 24 18% 8%;
+  --stage-radius: 0.25rem;
 }

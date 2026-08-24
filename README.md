@@ -1,69 +1,79 @@
-# Welcome to your Lovable project
+# Sahab Academy
 
-## Project info
+Website for **Sahab Academy Nursery, Primary, and Secondary School** in Babura Local Government, Jigawa State, Nigeria.
 
-**URL**: https://lovable.dev/projects/3e4ad92b-6990-4f5c-8fa4-9e06d3a895c6
+The site introduces the school, its sections, a message from the proprietor, a photo gallery, and a registration form for prospective families.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- Home page with about, nursery/primary/secondary offerings, and proprietor welcome
+- Gallery (campus, students, prefects, facilities, alumni)
+- Registration form with client-side validation
+- Responsive layout (desktop and mobile)
 
-**Use Lovable**
+## Tech stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/3e4ad92b-6990-4f5c-8fa4-9e06d3a895c6) and start prompting.
+- Vite + React 18 + TypeScript
+- Tailwind CSS and shadcn/ui
+- React Router
+- Framer Motion
 
-Changes made via Lovable will be committed automatically to this repo.
+## Prerequisites
 
-**Use your preferred IDE**
+- [Node.js](https://nodejs.org/) 18 or newer
+- npm (comes with Node.js)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## How to run locally
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repo
 git clone <YOUR_GIT_URL>
+cd sahab-academy
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app is available at **http://localhost:8080**.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Vite watches files and hot-reloads as you edit.
 
-**Use GitHub Codespaces**
+## Other scripts
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the local dev server (port 8080) |
+| `npm run build` | Production build into `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Run ESLint |
 
-## What technologies are used for this project?
+## Preview a production build
 
-This project is built with .
+```sh
+npm run build
+npm run preview
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Project structure
 
-## How can I deploy this project?
+```
+src/
+  App.tsx              # Routes
+  pages/
+    Index.tsx          # Home
+    Register.tsx       # Enrollment form
+    Gallery.tsx        # Photo gallery
+    NotFound.tsx       # 404
+  components/          # Page sections and UI
+  lib/                 # Shared helpers
+```
 
-Simply open [Lovable](https://lovable.dev/projects/3e4ad92b-6990-4f5c-8fa4-9e06d3a895c6) and click on Share -> Publish.
+Routes: `/`, `/register`, `/gallery`.
 
-## I want to use a custom domain - is that possible?
+## Notes
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- Registration does not call an API yet; it validates in the browser, then shows a success message.
+- Static images are expected under `public/images/` (alumni, campus, prefects, students).
